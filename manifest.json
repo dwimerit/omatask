@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "local.omatask",
+  "name": "Omatask",
+  "version": "0.4.0",
+  "author": "dwimerit",
+  "description": "Offline task widget with reminders for Omarchy. No cloud.",
+  "kinds": [
+    "bar-widget",
+    "service"
+  ],
+  "entryPoints": {
+    "barWidget": "integrations/omarchy/Widget.qml",
+    "service": "integrations/omarchy/Service.qml"
+  },
+  "barWidget": {
+    "displayName": "Tasks",
+    "category": "Productivity",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "schema": [
+      {
+        "key": "executable",
+        "type": "string",
+        "label": "Omatask executable (optional)"
+      },
+      {
+        "key": "database",
+        "type": "string",
+        "label": "SQLite path (optional)"
+      }
+    ]
+  },
+  "license": "MIT"
+}

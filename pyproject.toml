@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "omatask"
+version = "0.4.0"
+description = "Offline task widget with reminders for Omarchy. No cloud."
+requires-python = ">=3.11"
+dependencies = []
+license = {file = "LICENSE"}
+
+[project.scripts]
+omatask = "omatask.cli:main"
+
+[tool.setuptools]
+packages = ["omatask"]
+
+[tool.setuptools.package-data]
+omatask = ["assets/*.wav"]

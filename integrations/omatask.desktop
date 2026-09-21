@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Omatask
+Comment=Local task planner
+Type=Application
+Exec=omatask ui today
+Terminal=true
+Categories=Office;Utility;
+Keywords=tasks;planner;todo;

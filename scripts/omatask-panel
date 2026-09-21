@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+"""Native panel launcher; quick entry follows the focused monitor."""
+import json
+import subprocess
+import sys
+
+mode = sys.argv[1] if len(sys.argv) > 1 else 'toggle'
+if mode not in ('toggle', 'quick', 'open', 'close'):
+    raise SystemExit('Usage: omatask-panel [toggle|quick|open|close]')
+if mode == 'quick':
+    monitors = json.loads(subprocess.check_output(['hyprctl','monitors','-j'],text=True))
+    focused = next((m['name'] for m in monitors if m.get('focused')), None)
+    if not focused:raise SystemExit('No focused monitor')
+    command = ['omarchy-shell','local.omatask-'+focused,'quick']
+else:
+    command = ['omarchy-shell','shell',{'toggle':'toggle','open':'summon','close':'hide'}[mode],'local.omatask']
+raise SystemExit(subprocess.call(command))

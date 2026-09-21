@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+"""Run the backend bundled with this plugin, independent of PATH or installation."""
+from pathlib import Path
+import sys
+
+# Plugin checkouts must stay clean and must also work when mounted read-only.
+sys.dont_write_bytecode = True
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from omatask.cli import main
+
+raise SystemExit(main())

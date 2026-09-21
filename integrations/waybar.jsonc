@@ -1,0 +1,11 @@
+// Optional adapter for installations using Waybar. Add custom/omatask to modules-right.
+{
+  "custom/omatask": {
+    "exec": "omatask bar",
+    "return-type": "json",
+    "interval": 15,
+    "on-click": "omarchy launch tui omatask ui today",
+    "on-click-right": "omarchy launch tui omatask quick",
+    "tooltip": true
+  }
+}
